@@ -8,3 +8,11 @@ __pycache__/
 .DS_Store
 .pytest_cache/
 *.sqlite
+
+# Tai lieu giang vien cung cap, khong phan phoi lai
+starter/data/root_data.pdf
+
+# Streamlit demo (chi dung local)
+starter/demo_app.py
+.streamlit/
+starter/.streamlit/

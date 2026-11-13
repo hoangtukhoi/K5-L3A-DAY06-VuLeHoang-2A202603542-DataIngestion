@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed-size characters,500,50,"document_id,source,page,chapter",none,intfloat/multilingual-e5-small (384d; passage/query prefixes),"Baseline: cắt cố định cho Hit@3 thấp hơn B vì cắt giữa ý",9/15,12/15,4/9,7/9,"806 chunks; mean 441 chars; coherence 1.0/2 (n=10); 3 câu đúng trang nhưng evidence bị cắt (D07 D14 T06)"
+B,paragraph (rebuilt from hard-wrapped lines; heading N.N opens chunk),max 800,0,"document_id,source,page,chapter",none,intfloat/multilingual-e5-small (384d; passage/query prefixes),"Chunk theo đoạn giữ trọn ý nên Hit@1 và coherence cao hơn A",13/15,14/15,5/9,8/9,"620 chunks; mean 524 chars; coherence 1.8/2 (n=10); khác A chỉ ở chunking"
+C,same index as B,max 800,0,"document_id,source,page,chapter","chapter=N on 6 questions with filter (D05 D11 D15 T01 T03 T09); others unfiltered",intfloat/multilingual-e5-small (384d; passage/query prefixes),"Lọc theo chương giúp top-3 đúng phạm vi; Hit@3 không đổi nếu B đã tốt",13/15,14/15,5/9,8/9,"Khác B chỉ ở filter; hit giống hệt B; filter tuân thủ 6/6 so với B 5/6 và A 4/6; chi phí 0 USD"

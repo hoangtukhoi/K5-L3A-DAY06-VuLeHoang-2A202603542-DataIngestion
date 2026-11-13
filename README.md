@@ -45,3 +45,24 @@ Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **1
 | Cách nộp bài | [SUBMISSION.md](SUBMISSION.md) |
 
 [data/format-example.json](data/format-example.json) chỉ minh họa định dạng, không phải corpus đủ điều kiện. Phần xử lý và benchmark do bạn tự hiện thực; không bắt buộc xây chatbot.
+
+---
+
+## Bài làm của học viên (Vũ Lê Hoàng, 2A202603542)
+
+Corpus: giáo trình OOP/Java tiếng Việt do giảng viên cung cấp (207 trang nội dung). File PDF **không** nằm trong repo; đặt bản được cấp vào `starter/data/root_data.pdf`.
+
+```powershell
+cd starter
+python -m venv .venv ; .venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt          # gồm sentence-transformers (tải model ~470 MB lần đầu)
+Copy-Item .env.example .env
+docker compose -p day6_student_starter up -d --wait   # chạy trong WSL/Docker; kiểm tra: python scripts/check_setup.py
+python scripts/prepare_corpus.py                   # sinh data/manifest.json
+python scripts/verify_benchmark.py                 # kiểm tra 24 câu và evidence
+python scripts/ingest.py                           # nạp A và B vào pgvector (~5 phút, nạp lại không trùng)
+python -m src.run                                  # chạy A/B/C, lưu results/traces.jsonl và metrics.json
+python scripts/make_audit_sheets.py                # tạo bảng chấm thủ công; điền nhãn rồi chạy summarize_audit.py
+```
+
+Kết quả: `starter/results/`. Benchmark: `benchmark/`. Nhật ký thí nghiệm: `artifacts/experiment_log.csv`. Báo cáo: `report/individual/2A202603542_VuLeHoang.md`.

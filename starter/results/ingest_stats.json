@@ -1,0 +1,79 @@
+{
+  "model": "intfloat/multilingual-e5-small",
+  "dimensions": 384,
+  "cost_usd": 0.0,
+  "versions": {
+    "sentence-transformers": "5.3.0",
+    "torch": "2.11.0",
+    "psycopg": "3.3.8",
+    "pypdf": "6.21.4"
+  },
+  "python": "3.11.9",
+  "vector_store": "PostgreSQL 16 + pgvector 0.8.7 (exact cosine, no ANN index)",
+  "model_load_seconds": 266.75,
+  "params": {
+    "A": {
+      "size": 500,
+      "overlap": 50
+    },
+    "B": {
+      "max_size": 800
+    }
+  },
+  "strategies": {
+    "A": {
+      "first_ingest": {
+        "written": 806,
+        "removed_obsolete": 0,
+        "rows_in_db": 806,
+        "embed_seconds": 41.57,
+        "total_seconds": 44.86
+      },
+      "reingest_same_data": {
+        "written": 806,
+        "removed_obsolete": 0,
+        "rows_in_db": 806,
+        "embed_seconds": 38.88,
+        "total_seconds": 41.64
+      },
+      "changed_corpus_check": {
+        "written": 801,
+        "removed_obsolete": 5,
+        "rows_in_db": 801
+      },
+      "restore": {
+        "written": 806,
+        "removed_obsolete": 0,
+        "rows_in_db": 806
+      },
+      "chunks": 806
+    },
+    "B": {
+      "first_ingest": {
+        "written": 620,
+        "removed_obsolete": 0,
+        "rows_in_db": 620,
+        "embed_seconds": 36.31,
+        "total_seconds": 36.95
+      },
+      "reingest_same_data": {
+        "written": 620,
+        "removed_obsolete": 0,
+        "rows_in_db": 620,
+        "embed_seconds": 36.33,
+        "total_seconds": 36.77
+      },
+      "changed_corpus_check": {
+        "written": 615,
+        "removed_obsolete": 5,
+        "rows_in_db": 615
+      },
+      "restore": {
+        "written": 620,
+        "removed_obsolete": 0,
+        "rows_in_db": 620
+      },
+      "chunks": 620
+    }
+  }
+}

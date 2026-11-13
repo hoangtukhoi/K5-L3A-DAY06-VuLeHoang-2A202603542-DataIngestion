@@ -1,0 +1,74 @@
+=== root_data-p031-A00 ch2 len=500
+• lệnh lặp (loop ) thực hiện lặp đi lặp lại một hành động cho đến kh i một điều kiện dừng nào đó được thỏa mãn. Hai loại lệnh đó tạo thành các cấu trúc điều khiển (control structure ) bên trong chương trình. 2.4.1. Các cấu trúc rẽ nhánh Lệnh if-else Lệnh if-else (hay gọi tắt là lệnh if ) cho phép rẽ nhánh bằng cách lựa chọn thực hiện một trong hai hành động. Ví dụ, trong một chươ ng trình xếp loại điểm thi, nếu điểm của sinh viên nhỏ hơn 4.0, sinh viên đó được coi là trượt, nếu không thì được co
+
+=== root_data-p031-A01 ch2 len=500
+h viên đó được coi là trượt, nếu không thì được coi là đỗ. Thể hiện nội dung đó bằng một lệnh if-else của Java, ta có đoạn mã: if (score < 4.0) System.out.print("Failed"); else System.out.print("Passed"); Khi chương trình chạy một lệnh if-else, đầu tiên nó kiểm tra biểu thức điều kiện nằm trong cặp ngoặc đơn sau từ khóa if. Nếu biểu th ức có giá trị bằng true thì lệnh nằm sau từ khóa if sẽ được thực hiện. Ngược lại, lệ nh nằm sau else sẽ được thực hiện. Chú ý là biểu thức điều kiện phải được đặt
+
+=== root_data-p031-A02 ch2 len=247
+c hiện. Chú ý là biểu thức điều kiện phải được đặt trong một cặp ngoặc đơn. Hình 2.5: Ví d ụ v ề cấu trúc if-else . Chương trình ví dụ trong Hình 2.5 yêu cầu người dùng nhập điểm rồi in ra các thông báo khác nhau tùy theo điểm số đủ đỗ hoặc trượt.
+
+=== root_data-p117-A00 ch7 len=500
+public class Cow { public void moo () { System.out.println(name + " says Moooo..."); } public void moo(int n) { System.out.print(name + " says"); for (int i = 0; i < n; i++) System.out.print(" Moooo..."); System.out.println(""); } } Cow moo() moo(int n) Hình 7.6: Ví d ụ v ề ph ươ ng th ức ch ồng Ta sẽ còn quay lại các trường hợp áp dụng cài chồng khi nói về các hàm khởi tạo (constructor) trong Ch-¬ng 9. Do cơ chế cài chồng phương thức không phải tuân thủ hợp đồng đa hình do lớp cha quy định, các
+
+=== root_data-p117-A01 ch7 len=499
+tuân thủ hợp đồng đa hình do lớp cha quy định, các phương thức chồng có tính linh hoạt cao hơn. • Kiểu trả về có thể khác nhau. Ta có thể tùy ý thay đổi kiểu trả về tại các phương thức chồng, miễn là danh sách đối số khác nhau. • Khác biệt duy nhất ở kiểu trả về là không đủ. Nếu kh ông, đó không phải là việc cài chồng hợp lệ, trình biên dịch sẽ cho rằng ta đang định cài đè phương thức. Để overload, ta nhất định phải sửa danh sách tham số. • Có thể nới rộng hoặc hạn chế quyền truy nhập tùy ý. Ta
+
+=== root_data-p117-A02 ch7 len=500
+ể nới rộng hoặc hạn chế quyền truy nhập tùy ý. Ta có thể tùy ý thay đổi quyền truy nhập của phương thức chồng vì phương thức mới không bị buộc phải tuân theo hợp đồng đa hình, nếu có, của phương thức cũ. 7.11. CÁC MỨC TRUY NHẬP Đến đây, ngoài hai từ khóa public và private quy đị nh mức truy nhập, ta đã có thể học thêm về loại protected (được bảo vệ). Mục này tổng kết các kiến thức về cá c loại quyền truy nhập mà Java quy định. Ta có bốn mức truy nhập ( access level ) và ba từ khóa tương ứng priv
+
+=== root_data-p117-A03 ch7 len=500
+nhập ( access level ) và ba từ khóa tương ứng private, protected và public, mức còn lại là mức mặc định khô ng cần từ khóa. Các mức truy nhập được liệt kê theo thứ tự từ chặt tới lỏng như sau: • mức private : chỉ có mã bên trong cùng một lớp mới có thể truy nhập được những thứ private. private ở đây có nghĩa "của riêng lớp" c hứ không phải "của riêng đối tượng". Một đối tượng Dog có thể sửa các biến privat e hay gọi phương thức private của một đối tượng Dog khác, nhưng một đối tư ợng Cat thì thậ
+
+=== root_data-p117-A04 ch7 len=307
+i tượng Dog khác, nhưng một đối tư ợng Cat thì thậm chí không 'nhìn thấy' các thứ private của Dog. Các đối t ượng Dog cũng không thể 'nhìn thấy' các biến / phương thức private của các đối tượng Animal mà nó thừa kế. Vậy nên người ta nói rằng lớp con không thừa kế các biến / phương thức private của lớp cha.
+
+=== root_data-p154-A00 ch9 len=499
+9.5. TẠO BẢN SAO CỦA ĐỐI TƯỢNG Ta đã biết rằng không thể dùng phép gán để sao chép nội dung đối tượng, nó chỉ sao chép nội dung biến tham chiếu. Vậy làm thế nào để tạo đối tượng mới là bản sao của một đối tượng có sẵn? Có hai kiểu sao chép nội dung đối tượng. Sao chép nông (shallow copy ) là sao chép từng bit của các biến thực thể. Đối tượng mới sẽ có các biến thực thể có giá trị bằng các biến tương ứng của đối tượng cũ, kể cả các biến thực thể là tham chiếu. Do đó, nếu đối tượng cũ có một tham
+
+=== root_data-p154-A01 ch9 len=500
+à tham chiếu. Do đó, nếu đối tượng cũ có một tham chiếu tới một đối tượng khác thì đối tượng mới cũng có tham chiếu tới chính đối tượng đó. Đôi khi, đây là kết quả đúng. Chẳng hạn như khi ta tạo bản sao của một đối tượng Account (t ài khoản ngân hàng), cả hai tài khoản mới và cũ đều có chung một chủ sở hữu tài kho ản, nghĩa là biến thực thể owner của hai đối tượng này đều chiếu tới cùng một đối tượng Customer (khách hàng) – người sở hữu tài khoản. Trong những trường hợp khác, ta muốn tạo bản sao
+
+=== root_data-p154-A02 ch9 len=500
+. Trong những trường hợp khác, ta muốn tạo bản sao củ a cả các đối tượng thành phần. Sao chép sâu (deep copy ) tạo bản sao hoàn chỉnh của một đối tượng có sẵn. Chẳng hạn, khi thực hiện sao chép sâu đối với một đố i tượng là danh sách chứa các đối tượng khác, kết quả là các đối tượng thành phần cũng được tạo bản sao hoàn chỉnh. Ta được đối tượng danh sách mới chứa các đối tượng thành phần mới, tách biệt hoàn toàn với danh sách cũ (thay vì tình trạng các đối tượng thành phần đồng thời nằm trong cả
+
+=== root_data-p154-A03 ch9 len=500
+ng các đối tượng thành phần đồng thời nằm trong cả hai danh sách cũ và mới). Lấy ví d ụ khác: một căn hộ có nhiều phòng, mỗi phòng có các đồ đạc nội thất. Khi tạo bả n sao của một căn hộ, nhằm tạo ra một căn hộ khác giống hệt căn hộ ban đầu, ta phả i sao chép cả các phòng cũng như tất cả đồ đạc nội thất chứa trong đó. Không phả i tình trạng hai căn hộ nhưng lại có chung các phòng và chung nội thất. Để có được kiể u sao chép hoàn toàn này, lập trình viên phải tự cài đặt quy trình sao chép. Java c
+
+=== root_data-p154-A04 ch9 len=500
+nh viên phải tự cài đặt quy trình sao chép. Java có hỗ trợ sao chép nông và sao chép sâu với ph ương thức clone và interface Cloneable. Tuy nhiên, nhiều chuyên gia, trong đó có Joshua Bloch – tác giả cuốn Effective Java [7], khuyên không nên sử dụng hỗ trợ này do nó có l ỗi thiết kế và hiệu lực thực thi không ổn định, thay vào đó, nên dùng hàm khởi tạo sao chép. Hàm khởi tạo sao chép (copy constructor ) là hàm khởi tạo với tham số duy nhất là một tham chiếu đối tượng và hàm này sẽ khởi tạo đối t
+
+=== root_data-p154-A05 ch9 len=116
+tham chiếu đối tượng và hàm này sẽ khởi tạo đối tượng mới sao cho có nội dung giống hệt đối tượng đã cho. Chẳng hạn:
+
+=== root_data-p031-B00 ch2 len=207
+• lệnh lặp (loop ) thực hiện lặp đi lặp lại một hành động cho đến kh i một điều kiện dừng nào đó được thỏa mãn. Hai loại lệnh đó tạo thành các cấu trúc điều khiển (control structure ) bên trong chương trình.
+
+=== root_data-p031-B01 ch2 len=767
+2.4.1. Các cấu trúc rẽ nhánh Lệnh if-else Lệnh if-else (hay gọi tắt là lệnh if ) cho phép rẽ nhánh bằng cách lựa chọn thực hiện một trong hai hành động. Ví dụ, trong một chươ ng trình xếp loại điểm thi, nếu điểm của sinh viên nhỏ hơn 4.0, sinh viên đó được coi là trượt, nếu không thì được coi là đỗ. Thể hiện nội dung đó bằng một lệnh if-else của Java, ta có đoạn mã: if (score < 4.0) System.out.print("Failed"); else System.out.print("Passed"); Khi chương trình chạy một lệnh if-else, đầu tiên nó kiểm tra biểu thức điều kiện nằm trong cặp ngoặc đơn sau từ khóa if. Nếu biểu th ức có giá trị bằng true thì lệnh nằm sau từ khóa if sẽ được thực hiện. Ngược lại, lệ nh nằm sau else sẽ được thực hiện. Chú ý là biểu thức điều kiện phải được đặt trong một cặp ngoặc đơn.
+
+=== root_data-p031-B02 ch2 len=171
+Hình 2.5: Ví d ụ v ề cấu trúc if-else . Chương trình ví dụ trong Hình 2.5 yêu cầu người dùng nhập điểm rồi in ra các thông báo khác nhau tùy theo điểm số đủ đỗ hoặc trượt.
+
+=== root_data-p117-B00 ch7 len=677
+public class Cow { public void moo () { System.out.println(name + " says Moooo..."); } public void moo(int n) { System.out.print(name + " says"); for (int i = 0; i < n; i++) System.out.print(" Moooo..."); System.out.println(""); } } Cow moo() moo(int n) Hình 7.6: Ví d ụ v ề ph ươ ng th ức ch ồng Ta sẽ còn quay lại các trường hợp áp dụng cài chồng khi nói về các hàm khởi tạo (constructor) trong Ch-¬ng 9. Do cơ chế cài chồng phương thức không phải tuân thủ hợp đồng đa hình do lớp cha quy định, các phương thức chồng có tính linh hoạt cao hơn. • Kiểu trả về có thể khác nhau. Ta có thể tùy ý thay đổi kiểu trả về tại các phương thức chồng, miễn là danh sách đối số khác nhau.
+
+=== root_data-p117-B01 ch7 len=425
+• Khác biệt duy nhất ở kiểu trả về là không đủ. Nếu kh ông, đó không phải là việc cài chồng hợp lệ, trình biên dịch sẽ cho rằng ta đang định cài đè phương thức. Để overload, ta nhất định phải sửa danh sách tham số. • Có thể nới rộng hoặc hạn chế quyền truy nhập tùy ý. Ta có thể tùy ý thay đổi quyền truy nhập của phương thức chồng vì phương thức mới không bị buộc phải tuân theo hợp đồng đa hình, nếu có, của phương thức cũ.
+
+=== root_data-p117-B02 ch7 len=438
+7.11. CÁC MỨC TRUY NHẬP Đến đây, ngoài hai từ khóa public và private quy đị nh mức truy nhập, ta đã có thể học thêm về loại protected (được bảo vệ). Mục này tổng kết các kiến thức về cá c loại quyền truy nhập mà Java quy định. Ta có bốn mức truy nhập ( access level ) và ba từ khóa tương ứng private, protected và public, mức còn lại là mức mặc định khô ng cần từ khóa. Các mức truy nhập được liệt kê theo thứ tự từ chặt tới lỏng như sau:
+
+=== root_data-p117-B03 ch7 len=564
+• mức private : chỉ có mã bên trong cùng một lớp mới có thể truy nhập được những thứ private. private ở đây có nghĩa "của riêng lớp" c hứ không phải "của riêng đối tượng". Một đối tượng Dog có thể sửa các biến privat e hay gọi phương thức private của một đối tượng Dog khác, nhưng một đối tư ợng Cat thì thậm chí không 'nhìn thấy' các thứ private của Dog. Các đối t ượng Dog cũng không thể 'nhìn thấy' các biến / phương thức private của các đối tượng Animal mà nó thừa kế. Vậy nên người ta nói rằng lớp con không thừa kế các biến / phương thức private của lớp cha.
+
+=== root_data-p154-B00 ch9 len=218
+9.5. TẠO BẢN SAO CỦA ĐỐI TƯỢNG Ta đã biết rằng không thể dùng phép gán để sao chép nội dung đối tượng, nó chỉ sao chép nội dung biến tham chiếu. Vậy làm thế nào để tạo đối tượng mới là bản sao của một đối tượng có sẵn?
+
+=== root_data-p154-B01 ch9 len=682
+Có hai kiểu sao chép nội dung đối tượng. Sao chép nông (shallow copy ) là sao chép từng bit của các biến thực thể. Đối tượng mới sẽ có các biến thực thể có giá trị bằng các biến tương ứng của đối tượng cũ, kể cả các biến thực thể là tham chiếu. Do đó, nếu đối tượng cũ có một tham chiếu tới một đối tượng khác thì đối tượng mới cũng có tham chiếu tới chính đối tượng đó. Đôi khi, đây là kết quả đúng. Chẳng hạn như khi ta tạo bản sao của một đối tượng Account (t ài khoản ngân hàng), cả hai tài khoản mới và cũ đều có chung một chủ sở hữu tài kho ản, nghĩa là biến thực thể owner của hai đối tượng này đều chiếu tới cùng một đối tượng Customer (khách hàng) – người sở hữu tài khoản.
+
+=== root_data-p154-B02 ch9 len=767
+Trong những trường hợp khác, ta muốn tạo bản sao củ a cả các đối tượng thành phần. Sao chép sâu (deep copy ) tạo bản sao hoàn chỉnh của một đối tượng có sẵn. Chẳng hạn, khi thực hiện sao chép sâu đối với một đố i tượng là danh sách chứa các đối tượng khác, kết quả là các đối tượng thành phần cũng được tạo bản sao hoàn chỉnh. Ta được đối tượng danh sách mới chứa các đối tượng thành phần mới, tách biệt hoàn toàn với danh sách cũ (thay vì tình trạng các đối tượng thành phần đồng thời nằm trong cả hai danh sách cũ và mới). Lấy ví d ụ khác: một căn hộ có nhiều phòng, mỗi phòng có các đồ đạc nội thất. Khi tạo bả n sao của một căn hộ, nhằm tạo ra một căn hộ khác giống hệt căn hộ ban đầu, ta phả i sao chép cả các phòng cũng như tất cả đồ đạc nội thất chứa trong đó.
+
+=== root_data-p154-B03 ch9 len=697
+Không phả i tình trạng hai căn hộ nhưng lại có chung các phòng và chung nội thất. Để có được kiể u sao chép hoàn toàn này, lập trình viên phải tự cài đặt quy trình sao chép. Java có hỗ trợ sao chép nông và sao chép sâu với ph ương thức clone và interface Cloneable. Tuy nhiên, nhiều chuyên gia, trong đó có Joshua Bloch – tác giả cuốn Effective Java [7], khuyên không nên sử dụng hỗ trợ này do nó có l ỗi thiết kế và hiệu lực thực thi không ổn định, thay vào đó, nên dùng hàm khởi tạo sao chép. Hàm khởi tạo sao chép (copy constructor ) là hàm khởi tạo với tham số duy nhất là một tham chiếu đối tượng và hàm này sẽ khởi tạo đối tượng mới sao cho có nội dung giống hệt đối tượng đã cho. Chẳng hạn:

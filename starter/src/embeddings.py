@@ -1,5 +1,8 @@
-"""Choose a real embedding provider (API or local) and implement this contract."""
+"""Local multilingual embeddings via Sentence Transformers (no API key, cost 0)."""
+import os
 from typing import Protocol
+
+DEFAULT_MODEL = "intfloat/multilingual-e5-small"
 
 
 class Embedder(Protocol):
@@ -16,14 +19,27 @@ class Embedder(Protocol):
 
 
 class MyEmbedder:
-    """TODO: implement a provider adapter; do not silently fall back to mock vectors."""
+    """E5 model: documents get the 'passage: ' prefix, queries get 'query: '. Vectors are L2-normalized.
 
-    def __init__(self, model_name: str) -> None:
-        self.model_name = model_name
-        raise NotImplementedError("TODO: initialize real embedder and dimensions")
+    Fails loudly if the model cannot be loaded; never falls back to mock vectors.
+    """
+
+    def __init__(self, model_name: str | None = None) -> None:
+        self.model_name = model_name or os.getenv("EMBEDDING_MODEL") or DEFAULT_MODEL
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError as exc:
+            raise RuntimeError("sentence-transformers is not installed: pip install sentence-transformers") from exc
+        self._model = SentenceTransformer(self.model_name)
+        self.dimensions = int(self._model.get_sentence_embedding_dimension())
+
+    def _encode(self, texts: list[str], prefix: str) -> list[list[float]]:
+        vecs = self._model.encode([prefix + t for t in texts], normalize_embeddings=True,
+                                  batch_size=32, show_progress_bar=False)
+        return [v.tolist() for v in vecs]
 
     def embed_documents(self, texts: list[str]) -> list[list[float]]:
-        raise NotImplementedError("TODO: embed_documents")
+        return self._encode(texts, "passage: ")
 
     def embed_query(self, question: str) -> list[float]:
-        raise NotImplementedError("TODO: embed_query")
+        return self._encode([question], "query: ")[0]

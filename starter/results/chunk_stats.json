@@ -1,0 +1,24 @@
+{
+  "pages": 207,
+  "load_seconds": 9.32,
+  "A": {
+    "chunks": 806,
+    "total_chars": 355185,
+    "mean": 441,
+    "median": 500.0,
+    "min": 52,
+    "max": 500,
+    "under_100": 18,
+    "seconds": 0.032
+  },
+  "B": {
+    "chunks": 620,
+    "total_chars": 325085,
+    "mean": 524,
+    "median": 565.0,
+    "min": 1,
+    "max": 800,
+    "under_100": 24,
+    "seconds": 0.014
+  }
+}
